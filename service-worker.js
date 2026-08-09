@@ -13,18 +13,18 @@
  * data basi. Yang di-cache cuma "cangkang" aplikasinya.
  * ============================================================ */
 
-const CACHE_NAME = 'svs-gbp-shell-v1';
+const CACHE_NAME = 'svs-gbp-shell-v2';
 const APP_SHELL_FILES = [
   './',
   './index.html',
   './style.css',
   './script.js',
   './manifest.json',
-  './assets/icons/icon-192.png',
-  './assets/icons/icon-512.png',
-  './assets/icons/apple-touch-icon.png',
-  './assets/icons/logo.png',
-  './assets/icons/logo-wordmark.png'
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/apple-touch-icon.png',
+  './icons/logo.png',
+  './icons/logo-wordmark.png'
 ];
 
 self.addEventListener('install', (event) => {
