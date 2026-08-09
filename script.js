@@ -1432,6 +1432,16 @@ async function doLogin() {
 
     const profileResult = await Api.rawCall('readMyProfile', {});
     if (!profileResult.success) throw new Error(profileResult.message || 'Gagal memuat profil');
+
+    // Kunci akses: app GBP cuma boleh dimasuki akun yang business_id-nya
+    // "gbp" — akun Aluve (termasuk super_admin yang business_id akunnya
+    // masih "aluve") ditolak di sini, supaya tidak ketuker lihat data
+    // bisnis lain lewat app yang salah.
+    if (profileResult.data.business_id !== 'gbp') {
+      State.idToken = null;
+      throw new Error('Akun ini terdaftar untuk bisnis Aluve, bukan GBP. Gunakan akun khusus GBP, atau minta Super Admin membuatkan lewat Manager Dashboard.');
+    }
+
     State.user = profileResult.data;
     if (!State.user.email) State.user.email = email;
 
@@ -1480,6 +1490,7 @@ async function trySilentLogin() {
 
     const profileResult = await Api.rawCall('readMyProfile', {});
     if (!profileResult.success) throw new Error('Profil tidak ditemukan');
+    if (profileResult.data.business_id !== 'gbp') throw new Error('Akun tersimpan bukan akun GBP');
     State.user = profileResult.data;
 
     document.getElementById('view-login').hidden = true;
@@ -1488,6 +1499,7 @@ async function trySilentLogin() {
     return true;
   } catch (err) {
     localStorage.removeItem(REFRESH_TOKEN_KEY);
+    localStorage.removeItem('svs_remembered_email');
     return false;
   }
 }

@@ -13,7 +13,7 @@
  * data basi. Yang di-cache cuma "cangkang" aplikasinya.
  * ============================================================ */
 
-const CACHE_NAME = 'svs-gbp-shell-v2';
+const CACHE_NAME = 'svs-gbp-shell-v3';
 const APP_SHELL_FILES = [
   './',
   './index.html',
