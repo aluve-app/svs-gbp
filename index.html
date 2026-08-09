@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#D0202A" />
+<meta name="description" content="Sales Visit System - pencatatan kunjungan dan follow up mitra GBP (mesin aluminium &amp; UPVC)" />
+<title>SVS GBP - Sales Visit System</title>
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="SVS GBP" />
+<link rel="stylesheet" href="./style.css" />
+
+
+</head>
+<body>
+
+<div id="view-splash">
+  <div class="splash-content">
+    <img src="./assets/icons/logo-wordmark.png" alt="GBP" class="splash-logo" />
+    <p class="splash-subtitle">Sales App</p>
+    <p class="splash-tagline">Track Every Visit, Grow Every Project</p>
+  </div>
+  <p class="splash-footer">GBP © Copyright 2026. All Right Reserved</p>
+</div>
+
+<div id="view-login" hidden>
+  <div class="login-hero">
+    <img src="./assets/icons/logo-wordmark.png" alt="GBP" class="login-logo" />
+    <p class="login-hero-subtitle">Sales App</p>
+    <p class="login-hero-tagline">Track Every Visit, Grow Every Project</p>
+  </div>
+  <div class="login-card">
+    <h1 class="login-title">Welcome!</h1>
+    <p class="login-subtitle">Enter your credential login</p>
+
+    <div class="field-icon">
+      <span class="field-icon-svg">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      </span>
+      <input id="login-email" type="email" autocomplete="username" placeholder="Enter your email" />
+    </div>
+
+    <div class="field-icon">
+      <span class="field-icon-svg">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </span>
+      <input id="login-password" type="password" autocomplete="current-password" placeholder="Enter your password" />
+      <button type="button" id="btn-toggle-password" class="field-icon-toggle" aria-label="Tampilkan password">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+
+    <div class="login-row">
+      <label class="checkbox-label">
+        <input type="checkbox" id="login-remember" />
+        <span>Remember me</span>
+      </label>
+      <a href="#" class="login-forgot" id="link-forgot-password">Forgot password?</a>
+    </div>
+
+    <button class="login-btn" id="btn-login">Log in</button>
+    <p class="error-text" id="login-error"></p>
+    <p class="login-footer">GBP © Copyright 2026. All Right Reserved</p>
+  </div>
+</div>
+
+<div id="app" hidden>
+
+  <header class="app-header">
+    <button id="btn-back" class="icon-btn" type="button" aria-label="Kembali" hidden>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </button>
+    <h1 id="header-title" class="header-title">Halo</h1>
+    <div class="header-actions">
+      <button id="btn-theme-toggle" class="theme-switch" type="button" aria-label="Ganti tema" role="switch">
+        <svg class="theme-switch-icon theme-switch-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-switch-icon theme-switch-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span class="theme-switch-thumb"></span>
+      </button>
+      <button id="btn-profile" class="icon-btn" type="button" aria-label="Profil Saya">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button id="btn-logout" class="icon-btn" type="button" aria-label="Keluar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+      <button id="btn-notification" class="icon-btn" type="button" aria-label="Notifikasi">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span id="badge-notification-count" class="badge" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <div id="offline-banner" class="offline-banner" hidden>Tidak ada koneksi internet — data akan tersimpan lokal dan otomatis dikirim saat online</div>
+  <button id="pending-sync-banner" class="pending-sync-banner" type="button" hidden><span id="pending-sync-count">0</span> data menunggu dikirim — Tap untuk sync sekarang</button>
+
+  <main id="view-container" class="view-container">
+
+    <section id="view-dashboard" class="view active" data-view="dashboard">
+      <p id="dashboard-date-subtitle" class="greeting-subtitle"></p>
+
+      <div class="section-block">
+        <h2 class="section-title">Ringkasan Pipeline</h2>
+        <div class="stage-grid" id="stage-grid"></div>
+      </div>
+
+      <div class="section-block">
+        <h2 class="section-title">Ringkasan Saya</h2>
+        <div id="summary-period-chips" class="chip-group" style="margin-bottom:10px">
+          <button class="chip selected" type="button" data-period="today">Hari Ini</button>
+          <button class="chip" type="button" data-period="week">Minggu Ini</button>
+          <button class="chip" type="button" data-period="month">Bulan Ini</button>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item glow-primary" data-summary-type="visit"><span id="summary-visit" class="summary-number">0</span><span class="summary-label">Kunjungan</span></div>
+          <div class="summary-item glow-success" data-summary-type="won"><span id="summary-won" class="summary-number">0</span><span class="summary-label">Deal Ditutup</span></div>
+          <div class="summary-item glow-danger" data-summary-type="lost"><span id="summary-lost" class="summary-number">0</span><span class="summary-label">Deal Hilang</span></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h2 class="section-title">Perlu Follow Up Hari Ini</h2>
+        <div id="followup-list" class="card-list"></div>
+        <div id="followup-empty" class="empty-state" hidden>
+          <span class="empty-state-badge">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="empty-state-badge-check"><svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          </span>
+          <p class="empty-state-heading">Tidak ada follow up jatuh tempo.</p>
+          <p class="empty-state-subtext">Sangat baik! Semua jadwal hari ini sudah tuntas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-projects" class="view" data-view="projects">
+      <div class="search-bar">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="input-search-project" type="text" placeholder="Cari nama project atau lokasi..." />
+        <button id="btn-open-filter" class="icon-btn" type="button" aria-label="Filter">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><circle cx="15" cy="6" r="2.2" fill="currentColor" stroke="none"/><line x1="3" y1="12" x2="21" y2="12"/><circle cx="9" cy="12" r="2.2" fill="currentColor" stroke="none"/><line x1="3" y1="18" x2="21" y2="18"/><circle cx="13" cy="18" r="2.2" fill="currentColor" stroke="none"/></svg>
+        </button>
+      </div>
+      <div id="quick-filter-chips" class="chip-group" style="margin-bottom:12px">
+        <button class="chip selected" type="button" data-quickfilter="Semua">Semua</button>
+        <button class="chip" type="button" data-quickfilter="Aktif">Aktif</button>
+        <button class="chip" type="button" data-quickfilter="Won">Won</button>
+        <button class="chip" type="button" data-quickfilter="Lost">Lost</button>
+      </div>
+      <div id="project-list" class="card-list"></div>
+      <p id="project-list-empty" class="empty-state" hidden>Belum ada project. Tap tombol + untuk menambahkan.</p>
+    </section>
+
+    <section id="view-timeline" class="view" data-view="timeline">
+      <div class="timeline-header card">
+        <h3 id="timeline-project-name" class="card-title">-</h3>
+        <p id="timeline-project-meta" class="card-sub">-</p>
+        <p id="timeline-project-address" class="card-sub-light">-</p>
+        <div id="timeline-project-contacts" class="contact-list"></div>
+        <p id="timeline-project-detail" class="card-sub-light"></p>
+        <button id="btn-add-contact-from-timeline" class="secondary-button" type="button" style="margin-top:10px">+ Tambah Kontak</button>
+      </div>
+      <div id="timeline-list" class="timeline"></div>
+      <button id="btn-add-activity-from-timeline" class="primary-button full-width sticky-bottom" type="button">+ Catat Aktivitas Baru</button>
+      <button id="btn-delete-project" class="danger-button full-width" type="button" style="margin-top:8px">🗑️ Hapus Project</button>
+    </section>
+
+    <section id="view-profile" class="view" data-view="profile">
+      <div class="card" style="margin-bottom:20px">
+        <p class="card-title" id="profile-name">-</p>
+        <p class="card-sub-light" id="profile-email">-</p>
+      </div>
+      <div class="section-block">
+        <h2 class="section-title">Ganti Password</h2>
+        <form id="form-change-password">
+          <div class="form-group"><label class="form-label" for="input-current-password">Password Saat Ini *</label><input id="input-current-password" class="form-input" type="password" required autocomplete="current-password" /></div>
+          <div class="form-group"><label class="form-label" for="input-new-password">Password Baru *</label><input id="input-new-password" class="form-input" type="password" required minlength="6" autocomplete="new-password" /></div>
+          <div class="form-group"><label class="form-label" for="input-confirm-password">Konfirmasi Password Baru *</label><input id="input-confirm-password" class="form-input" type="password" required minlength="6" autocomplete="new-password" /></div>
+          <p class="error-text" id="change-password-feedback" style="text-align:left"></p>
+          <button type="submit" class="primary-button full-width">Simpan Password Baru</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <button id="fab-add-project" class="fab" type="button" aria-label="Tambah Project">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
+
+  <nav class="bottom-nav">
+    <button class="bottom-nav-item active" type="button" data-nav="dashboard">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="bottom-nav-item" type="button" data-nav="projects">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      <span class="nav-label">Project</span>
+    </button>
+  </nav>
+
+  <div id="sheet-overlay" class="sheet-overlay" hidden></div>
+
+  <div id="sheet-add-project" class="bottom-sheet" hidden>
+    <div class="sheet-handle"></div>
+    <div class="sheet-header"><h3>Tambah Project Baru</h3><button class="icon-btn sheet-close" type="button" data-close-sheet="sheet-add-project">✕</button></div>
+    <form id="form-add-project" class="sheet-body">
+      <div class="form-group"><label class="form-label" for="input-project-name">Nama Project *</label><input id="input-project-name" class="form-input" type="text" required /></div>
+      <div class="form-group"><label class="form-label" for="input-project-address">Lokasi *</label><input id="input-project-address" class="form-input" type="text" placeholder="Contoh: Jl. Raya Soreang No. 45, Bandung" required /></div>
+      <div class="form-group"><label class="form-label" for="select-activity-type-new">Jenis Aktivitas *</label><select id="select-activity-type-new" class="form-select" required></select></div>
+      <div class="form-group"><label class="form-label" for="select-project-category">Tier Mesin *</label><select id="select-project-category" class="form-select" required></select></div>
+      <div class="form-group"><label class="form-label">Tipe Mesin &amp; Bahan Baku * (pilih min. 1)</label><div id="product-type-chips" class="chip-group wrap"></div></div>
+      <div class="form-group"><label class="form-label" for="select-construction-stage">Status Kemitraan</label><select id="select-construction-stage" class="form-select"><option value="">Pilih (opsional)</option></select></div>
+      <div class="form-group"><label class="form-label">Info Kontak di Lokasi (opsional)</label><input id="input-contact-name" class="form-input" type="text" placeholder="Nama kontak" /></div>
+      <div class="form-group"><input id="input-contact-phone" class="form-input" type="tel" placeholder="No. Telepon/WA" /></div>
+      <div class="form-group"><select id="select-contact-role" class="form-select"><option value="">Role Kontak (opsional)</option></select></div>
+      <div class="form-group"><label class="form-label" for="select-lead-source">Sumber Leads *</label><select id="select-lead-source" class="form-select" required></select></div>
+      <div class="form-group"><label class="form-label" for="input-followup-newproject">Follow-up Berikutnya *</label><input id="input-followup-newproject" class="form-input" type="date" required /></div>
+      <div class="form-group">
+        <label class="form-label">Foto Kunjungan * (boleh lebih dari 1)</label>
+        <input id="input-photo-newproject" type="file" accept="image/*" capture="environment" hidden />
+        <input id="input-gallery-newproject" type="file" accept="image/*" multiple hidden />
+        <div class="photo-source-buttons">
+          <button id="btn-take-photo-newproject" class="secondary-button" type="button">📷 Ambil Foto</button>
+          <button id="btn-pick-gallery-newproject" class="secondary-button" type="button">🖼️ Galeri</button>
+        </div>
+        <div id="photo-thumbnail-list-newproject" class="photo-thumbnail-list"></div>
+      </div>
+      <div class="form-group"><label class="form-label" for="input-activity-note-new">Catatan Kunjungan *</label><textarea id="input-activity-note-new" class="form-textarea" rows="4" placeholder="Contoh: Survei lokasi & perkenalan produk" required></textarea></div>
+      <button type="submit" class="primary-button full-width">SIMPAN PROJECT</button>
+    </form>
+  </div>
+
+  <div id="sheet-update-progress" class="bottom-sheet" hidden>
+    <div class="sheet-handle"></div>
+    <div class="sheet-header"><h3 id="update-progress-project-name">Update Aktivitas</h3><button class="icon-btn sheet-close" type="button" data-close-sheet="sheet-update-progress">✕</button></div>
+    <form id="form-update-progress" class="sheet-body">
+      <div class="form-group"><label class="form-label" for="select-activity-type">Jenis Aktivitas *</label><select id="select-activity-type" class="form-select" required></select></div>
+      <div class="form-group"><label class="form-label" for="select-pipeline-stage">Status Pipeline *</label><select id="select-pipeline-stage" class="form-select" required></select></div>
+      <div class="form-group"><label class="form-label" for="select-temperature">Status Suhu Lead</label><select id="select-temperature" class="form-select"><option value="">— Tidak diisi —</option></select></div>
+      <div id="lost-reason-group" class="form-group" hidden><label class="form-label">Alasan Lost *</label><div id="lost-reason-chips" class="chip-group wrap"></div></div>
+      <div class="form-group" id="followup-date-group">
+        <label class="form-label">Follow Up Berikutnya *</label>
+        <div id="followup-quick-chips" class="chip-group wrap" style="margin-bottom:8px">
+          <button class="chip" type="button" data-followup-days="1">Besok</button>
+          <button class="chip" type="button" data-followup-days="3">3 Hari</button>
+          <button class="chip" type="button" data-followup-days="7">1 Minggu</button>
+        </div>
+        <input id="input-followup-date" class="form-input" type="date" />
+      </div>
+      <div class="form-group"><label class="form-label" for="input-estimated-value">Estimasi Nilai Project (opsional)</label><input id="input-estimated-value" class="form-input" type="number" inputmode="numeric" placeholder="Contoh: 25000000" min="0" /><p class="form-hint">Isi kalau sudah tahu perkiraan nilainya. Boleh dikosongkan dan diisi/diperbarui belakangan.</p></div>
+      <div class="form-group">
+        <label class="form-label">Foto Update (opsional, boleh lebih dari 1)</label>
+        <input id="input-photo" type="file" accept="image/*" capture="environment" hidden />
+        <input id="input-gallery" type="file" accept="image/*" multiple hidden />
+        <div class="photo-source-buttons">
+          <button id="btn-take-photo" class="secondary-button" type="button">📷 Ambil Foto</button>
+          <button id="btn-pick-gallery" class="secondary-button" type="button">🖼️ Galeri</button>
+        </div>
+        <div id="photo-thumbnail-list" class="photo-thumbnail-list"></div>
+      </div>
+      <div class="form-group"><label class="form-label" for="input-activity-note">Catatan *</label><textarea id="input-activity-note" class="form-textarea" rows="3" required></textarea></div>
+      <div id="update-progress-contact-group" hidden>
+        <div class="form-group"><label class="form-label">Info Kontak di Lokasi (opsional, belum pernah diisi)</label><input id="input-contact-name-update" class="form-input" type="text" placeholder="Nama kontak" /></div>
+        <div class="form-group"><input id="input-contact-phone-update" class="form-input" type="tel" placeholder="No. Telepon/WA" /></div>
+        <div class="form-group"><select id="select-contact-role-update" class="form-select"><option value="">Role Kontak (opsional)</option></select></div>
+      </div>
+      <button type="submit" class="primary-button full-width">SIMPAN</button>
+    </form>
+  </div>
+
+  <div id="sheet-filter" class="bottom-sheet" hidden>
+    <div class="sheet-handle"></div>
+    <div class="sheet-header"><h3>Filter</h3><button class="icon-btn sheet-close" type="button" data-close-sheet="sheet-filter">✕</button></div>
+    <div class="sheet-body">
+      <div class="form-group"><label class="form-label">Pipeline Stage</label><div id="filter-stage-chips" class="chip-group wrap"><button class="chip selected" type="button" data-filter-stage="">Semua</button></div></div>
+      <div class="form-group"><label class="form-label">Jenis Produk</label><div id="filter-product-chips" class="chip-group wrap"><button class="chip selected" type="button" data-filter-product="">Semua</button></div></div>
+      <div class="sheet-action-row"><button id="btn-filter-reset" class="secondary-button" type="button">RESET</button><button id="btn-filter-apply" class="primary-button" type="button">TERAPKAN</button></div>
+    </div>
+  </div>
+
+  <div id="sheet-summary-detail" class="bottom-sheet" hidden>
+    <div class="sheet-handle"></div>
+    <div class="sheet-header"><h3 id="summary-detail-title">Detail</h3><button class="icon-btn sheet-close" type="button" data-close-sheet="sheet-summary-detail">✕</button></div>
+    <div class="sheet-body"><div id="summary-detail-list" class="card-list"></div></div>
+  </div>
+
+  <div id="sheet-add-contact" class="bottom-sheet" hidden>
+    <div class="sheet-handle"></div>
+    <div class="sheet-header"><h3>Tambah Kontak</h3><button class="icon-btn sheet-close" type="button" data-close-sheet="sheet-add-contact">✕</button></div>
+    <form id="form-add-contact" class="sheet-body">
+      <div class="form-group"><label class="form-label">Nama *</label><input id="ct2-name" class="form-input" required /></div>
+      <div class="form-group"><label class="form-label">No. Telepon *</label><input id="ct2-phone" class="form-input" type="tel" required /></div>
+      <div class="form-group"><label class="form-label">Peran *</label><select id="ct2-role" class="form-select" required></select></div>
+      <button type="submit" class="primary-button full-width">Simpan Kontak</button>
+    </form>
+  </div>
+
+  <div id="sheet-notifications" class="bottom-sheet" hidden>
+    <div class="sheet-handle"></div>
+    <div class="sheet-header"><h3>Perlu Follow Up</h3><button class="icon-btn sheet-close" type="button" data-close-sheet="sheet-notifications">✕</button></div>
+    <div class="sheet-body"><div id="notification-list" class="card-list"></div></div>
+  </div>
+
+  <div id="snackbar" class="snackbar" role="status" aria-live="polite"></div>
+
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
