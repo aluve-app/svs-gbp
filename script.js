@@ -147,7 +147,7 @@ const LookupRenderer = {
     this.renderSelect('select-activity-type', get('activity_type'), 'Pilih Jenis Aktivitas');
     this.renderSelect('select-activity-type-new', get('activity_type'), null, 'Kunjungan Pertama');
     this.renderSelect('select-pipeline-stage', get('pipeline_stage'), null);
-    this.renderSelect('select-temperature', get('activity_temperature'), '— Tidak diisi —', null, true);
+    this.renderSelect('select-temperature', get('activity_temperature'), '— Tidak diisi —');
     this.renderSelect('select-project-category', get('project_category'), 'Pilih');
     this.renderProductTypeChips(get('product_type'));
     this.renderLostReasonChips(get('lost_reason'));
